@@ -1,0 +1,14 @@
+{
+  "boss_name": "Harsh",
+  "preferences": {
+    "theme": "dark",
+    "language": "Hinglish",
+    "favorite_apps": ["WhatsApp", "YouTube", "Spotify"],
+    "mood_history": []
+  },
+  "emotional_profile": {
+    "temperament": "Respectful",
+    "connection_level": 100,
+    "last_interaction": ""
+  }
+}

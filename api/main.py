@@ -125,7 +125,9 @@ async def process_voice(request: Request, input: VoiceInput):
                 
             ai_plan = json.loads(cleaned_text)
             
-            # Success!
+            # Success! Update Memory & Mood
+            if ai_plan.get("mood_detected"):
+                memory.update_mood(ai_plan["mood_detected"])
             if ai_plan.get("learned"):
                 memory.add_learned_fact(ai_plan["learned"])
             
@@ -295,8 +297,10 @@ async def process_voice_upload(request: Request, file: UploadFile = File(...)):
                     
                 ai_data = json.loads(cleaned_text)
                 
-                # Success!
+                # Success! Update Memory & Mood
                 ai_plan = ai_data.get("ai_plan") or ai_data
+                if ai_plan.get("mood_detected"):
+                    memory.update_mood(ai_plan["mood_detected"])
                 if ai_plan.get("learned"):
                     memory.add_learned_fact(ai_plan["learned"])
                 
